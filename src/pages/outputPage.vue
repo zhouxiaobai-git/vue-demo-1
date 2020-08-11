@@ -1,6 +1,5 @@
 <template>
-  <div>
-    结果页
-    <span>磊哥帅的</span>
-  </div>
+    <div>结果页
+        <span @click="$router.push({ path: '/input' })">跳转页面到录入页</span>
+    </div>
 </template>
