@@ -5,11 +5,12 @@
   "scripts": {
     "dev": "node_modules/.bin/webpack-dev-server --config webpack.dev.js"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "yelloxing",
+  "license": "MIT",
   "dependencies": {
     "vue": "^2.6.11",
-    "vue-router": "^3.4.2"
+    "vue-router": "^3.4.2",
+    "image2d":"^1.8.1"
   },
   "devDependencies": {
     "node-sass": "^4.11.0",
