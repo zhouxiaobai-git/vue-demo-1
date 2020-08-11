@@ -1,8 +1,7 @@
 {
-  "name": "vue-demo",
+  "name": "vue-form-example",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Vue版本的表单设计用例(包括日历、下拉和表单校验等)",
   "scripts": {
     "dev": "node_modules/.bin/webpack-dev-server --config webpack.dev.js"
   },
