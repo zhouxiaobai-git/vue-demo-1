@@ -1,8 +1,8 @@
 <template>
   <form novalidate v-submit="doSubmit">
     <div class="row">
-      <label>姓名</label>
-      <ep-input></ep-input>
+      <label>姓名={{personName}}=</label>
+      <ep-input v-model="personName"></ep-input>
     </div>
     <div class="row">
       <label>出生年月</label>
@@ -24,6 +24,11 @@
 </template>
 <script>
 export default {
+  data() {
+    return {
+      personName: "阿猫",
+    };
+  },
   methods: {
     // 表单提交方法
     doSubmit() {
