@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="calendar-root-view">
     <input readonly type="text" :value="value" @input="doit()" ref="myinput" />
     <div ref="mycalendar" class="calendar-view">
       <!--日历组件切换视图的地方-->
@@ -114,6 +114,10 @@ export default {
       // 点击‘天’按钮
       $$(".click", this.$refs.mycalendar).bind("click", (event) => {
         let day = event.target.getAttribute("val");
+
+        // 日期天‘1’，‘3’这种变成‘01’、‘03’
+        if (day.length <= 1) day = "0" + day;
+
         this.selectYear = year;
         this.selectMonth = month;
         this.selectDay = day;
@@ -261,7 +265,15 @@ export default {
 ----------------------------------------
 */
 
+.calendar-root-view {
+  display: inline-block;
+  & > input {
+    cursor: pointer;
+  }
+}
+
 .calendar-view {
+  position: absolute;
   width: 210px;
   user-select: none;
   background-color: rgb(233, 239, 241);

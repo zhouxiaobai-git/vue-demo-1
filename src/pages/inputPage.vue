@@ -1,7 +1,7 @@
 <template>
   <form novalidate v-submit="doSubmit">
     <div class="row">
-      <label>姓名={{personName}}=</label>
+      <label>姓名</label>
       <ep-input v-model="personName"></ep-input>
     </div>
     <div class="row">
@@ -43,3 +43,34 @@ export default {
   },
 };
 </script>
+<style lang="scss" scoped>
+form {
+  width: 295px;
+  padding: 10px 0;
+  div {
+    &.row {
+      & > label {
+        width: 6em;
+        display: inline-block;
+        text-align: right;
+      }
+      line-height: 1.6em;
+    }
+    &.btn-list {
+      text-align: center;
+      margin-top: 14px;
+      & > .btn {
+        padding: 3px 10px;
+        border-radius: 6px;
+        color: white;
+        &.btn-submit {
+          background-color: rgb(25, 186, 235);
+        }
+        &.btn-reset {
+          background-color: rgb(214, 210, 204);
+        }
+      }
+    }
+  }
+}
+</style>
