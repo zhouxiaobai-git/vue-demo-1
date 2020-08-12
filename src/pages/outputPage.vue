@@ -1,3 +1,6 @@
 <template>
-    <div>结果页</div>
+  <div>
+    <!-- {{$route.query.paramsData}} -->
+    {{$route.params.paramsData}}
+  </div>
 </template>

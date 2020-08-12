@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="input-root-view">
     <input ref="myinput" type="text" :value="value" @input="doit()" />
   </div>
 </template>
@@ -10,6 +10,11 @@ export default {
     doit() {
       this.$emit("input", this.$refs.myinput.value);
     },
-  }
+  },
 };
 </script>
+<style lang="scss">
+.input-root-view {
+  display: inline-block;
+}
+</style>

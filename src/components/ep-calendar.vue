@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <input readonly type="text" :value="value" @input="doit()" ref="myinput" />
+  <div class="calendar-root-view">
+    <input readonly type="text" ref="myinput" />
     <div ref="mycalendar" class="calendar-view">
       <!--日历组件切换视图的地方-->
     </div>
@@ -27,8 +27,8 @@ export default {
     };
   },
   methods: {
-    doit() {
-      this.$emit("input", this.$refs.myinput.value);
+    doit(year, month, day) {
+      this.$emit("input", `${year}${month}${day}`);
     },
     // 选择天的视图
     selectDayView(year, month) {
@@ -114,11 +114,15 @@ export default {
       // 点击‘天’按钮
       $$(".click", this.$refs.mycalendar).bind("click", (event) => {
         let day = event.target.getAttribute("val");
+
+        // 日期天‘1’，‘3’这种变成‘01’、‘03’
+        if (day.length <= 1) day = "0" + day;
+
         this.selectYear = year;
         this.selectMonth = month;
         this.selectDay = day;
-        this.$refs.myinput.value = `${year}${month}${day}`;
-        this.doit();
+        this.$refs.myinput.value = `${year}年${month}月${day}日`;
+        this.doit(year, month, day);
         this.$refs.mycalendar.innerHTML = "";
         this.isOpen = false;
       });
@@ -233,6 +237,8 @@ export default {
     this.selectMonth = this.value.substr(4, 2);
     this.selectDay = this.value.substr(6, 2);
 
+    this.$refs.myinput.value = `${this.selectYear}年${this.selectMonth}月${this.selectDay}日`;
+
     // 初始化今天
     const today = new Date();
     this.todayYear = today.getFullYear();
@@ -261,13 +267,26 @@ export default {
 ----------------------------------------
 */
 
+.calendar-root-view {
+  display: inline-block;
+  & > input {
+    cursor: pointer;
+    background-image: url('../assets/calendar.png');
+    background-size: auto 70%;
+    background-repeat: no-repeat;
+    background-position: right center;
+  }
+}
+
 .calendar-view {
+  position: absolute;
   width: 210px;
   user-select: none;
   background-color: rgb(233, 239, 241);
   line-height: 1.8em;
   text-align: center;
   box-shadow: 1px 2px 3px #79798d;
+  z-index: 1;
 }
 
 /* 头部 */
