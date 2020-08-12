@@ -10,6 +10,6 @@ export default {
     doit() {
       this.$emit("input", this.$refs.myinput.value);
     },
-  },
+  }
 };
 </script>
