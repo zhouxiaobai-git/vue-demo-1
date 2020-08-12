@@ -2,7 +2,11 @@
   <div class="select-root-view">
     <input readonly type="text" ref="myinput" @click="isOpen=!isOpen" />
     <ul v-show="isOpen">
-      <li @click="isOpen=false;doSelect(key)" v-for="(value,key) in list" :key="key">{{value}}</li>
+      <li
+        @click="isOpen=false;doSelect(key)"
+        v-for="(value,key) in list"
+        :key="key"
+      >{{key}} - {{value}}</li>
     </ul>
   </div>
 </template>
@@ -40,6 +44,7 @@ export default {
     position: absolute;
     width: 100%;
     background: #e9eff1;
+    z-index: 1;
     & > li {
       padding: 10px;
       cursor: pointer;

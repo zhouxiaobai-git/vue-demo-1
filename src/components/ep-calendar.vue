@@ -286,6 +286,7 @@ export default {
   line-height: 1.8em;
   text-align: center;
   box-shadow: 1px 2px 3px #79798d;
+  z-index: 1;
 }
 
 /* 头部 */
