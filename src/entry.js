@@ -12,6 +12,9 @@ import './directives/index';
 // 引入公共组件
 import './components/index';
 
+// 公共样式
+import '@yelloxing/normalize.css';
+
 // 创建根Vue实例对象
 new Vue({
 

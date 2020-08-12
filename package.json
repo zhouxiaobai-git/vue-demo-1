@@ -8,9 +8,10 @@
   "author": "yelloxing",
   "license": "MIT",
   "dependencies": {
+    "@yelloxing/normalize.css": "^0.2.2",
+    "image2d": "^1.8.1",
     "vue": "^2.6.11",
-    "vue-router": "^3.4.2",
-    "image2d":"^1.8.1"
+    "vue-router": "^3.4.2"
   },
   "devDependencies": {
     "node-sass": "^4.11.0",
