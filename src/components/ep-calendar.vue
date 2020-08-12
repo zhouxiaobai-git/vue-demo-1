@@ -72,7 +72,7 @@ export default {
         ) {
           clazz += " today";
         }
-        template += `<li class='${clazz}' name='item-click' val='${i}'>${i}</li>\n`;
+        template += `<li class='${clazz}' name='item-click' val='${i}'>${i}</li>`;
       }
 
       // 后置灰色
