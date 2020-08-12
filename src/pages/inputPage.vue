@@ -10,11 +10,11 @@
     </div>
     <div class="row">
       <label>国籍</label>
-      <ep-select></ep-select>
+      <ep-select v-model="nation" :list="selectList.nations"></ep-select>
     </div>
     <div class="row">
       <label>是否自贸区</label>
-      <ep-radio></ep-radio>
+      <ep-radio v-model="isFTA"></ep-radio>
     </div>
     <div class="btn-list">
       <input type="button" @click="doReset()" value="重置" class="btn btn-reset" />
@@ -26,8 +26,21 @@
 export default {
   data() {
     return {
-      personName: "阿猫",
-      birthDate: "19491001",
+      personName: "可达鸭",
+      birthDate: "20070701",
+      nation: "1",
+      selectList: {
+        nations: {
+          1: "A国",
+          2: "B国",
+          3: "C国",
+          4: "D国",
+          5: "E国",
+          6: "F国",
+          7: "G国",
+        },
+      },
+      isFTA: false,
     };
   },
   methods: {
