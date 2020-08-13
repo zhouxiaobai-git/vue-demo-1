@@ -2,7 +2,11 @@
   <form novalidate v-submit="doSubmit">
     <div class="row">
       <label>姓名</label>
-      <ep-input v-model="params.personName"></ep-input>
+      <ep-input v-model="params.personName" v-valid-required></ep-input>
+    </div>
+    <div class="row">
+      <label>备注</label>
+      <ep-input v-model="params.remark" v-valid-required></ep-input>
     </div>
     <div class="row">
       <label>出生年月</label>
@@ -18,7 +22,7 @@
     </div>
     <div class="btn-list">
       <input type="button" @click="doReset()" value="重置" class="btn btn-reset" />
-      <input type="button" @click="doSubmit()" value="提交" class="btn btn-submit" />
+      <input type="submit" value="提交" class="btn btn-submit" />
     </div>
   </form>
 </template>
@@ -28,6 +32,7 @@ export default {
     return {
       params: {
         personName: "可达鸭",
+        remark: "红烧好吃",
         birthDate: "20070701",
         nation: "1",
         isFTA: false,
@@ -49,7 +54,6 @@ export default {
     // 表单提交方法
     doSubmit() {
       this.$router.push({
-
         // 第一种方式
         // path: "/output",
         // query:{
@@ -57,10 +61,10 @@ export default {
         // }
 
         // 第二种方式
-        name:"output",
-        params:{
-          paramsData:this.params
-        }
+        name: "output",
+        params: {
+          paramsData: this.params,
+        },
       });
     },
 
@@ -75,6 +79,9 @@ export default {
 form {
   width: 295px;
   padding: 10px 0;
+  &.ep-invalid div.btn-list > .btn.btn-submit {
+    background-color: red;
+  }
   div {
     &.row {
       & > label {
